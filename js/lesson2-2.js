@@ -63,4 +63,16 @@ for (let item in Price) {
 // console.log(array)
 // Array.file(value, start, end)
 let array = [1, 2, 3, 4, 5]
-console.log(array.fill(8, 2, 4))
+// console.log(array.fill(8, 2, 4))
+// let find = array.filter((item) => {
+//   return item % 2 === 0
+// })
+// console.log(find)
+// let find = array.find((item) => {
+//    return item === 6
+// })
+// console.log(find)
+let find = array.findIndex((item) => {
+   return item === 1
+})
+console.log(find)
