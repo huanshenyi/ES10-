@@ -44,3 +44,16 @@ for (let item of arr) {
   console.log(item)
 }
 ```
+
+```javascript
+//arrayの初期化 from
+let array = Array.from({ length: 5 }, () => {  return 1 })
+```
+
+```javascript
+//arrayの初期化from
+// Array.file(value, start, end)
+let array = Array(5).fill(1)
+let array = [1, 2, 3, 4, 5]
+console.log(array.fill(8, 2, 4)) //  [1, 2, 8, 8, 5]
+```

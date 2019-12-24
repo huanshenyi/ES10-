@@ -37,5 +37,30 @@ const Price = {
   C: [0.5, 0.8, 1.2]
 }
 for (let item in Price) {
-  console.log(item, Price[item])
+  // console.log(item, Price[item])
 }
+// 2-8 スタート
+//
+// let args = [].slice.call(argu) // collection
+// let image = [].slice.call(document.querySelectorAll('img')) //nodelist
+// let args = Array.from(arguments)
+// let images = Array.from(document.querySelectorAll('img'))
+// images.forEach()
+// Array.from(arrayLike,mapFn,thisArg)
+// let array=Array(5)
+// let array = Array.from({ length: 5 }, () => {  return 1 })
+// {0:'a',1:'b',length:2}
+// console.log(array)
+
+// new list
+// let array = Array(5)
+// Array.prototype.of
+
+// let array = Array.of(1, 2, 3, 4, 5)
+// console.log(array)
+// Array.prototype.fill
+// let array = Array(5).fill(1)
+// console.log(array)
+// Array.file(value, start, end)
+let array = [1, 2, 3, 4, 5]
+console.log(array.fill(8, 2, 4))
