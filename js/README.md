@@ -39,7 +39,7 @@ for (let index in arr) {
 
 ```javascript
 // for of
-
+// iterableをループ用
 for (let item of arr) {
   console.log(item)
 }
