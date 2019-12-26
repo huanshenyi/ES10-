@@ -106,3 +106,23 @@ Dog.prototype = Animal.prototype
 let dog = new Dog('dog')
 dog.eat()
 ```
+# 関数のパラメータ扱い
+
+## すべてのパラメータを見る
+```javascript
+// ディフォルトパラメータ
+// Array.from(arguments) 
+function f (x, y=7, z=x + y) {
+   console.log(Array.from(arguments))
+   return x * 10 + z // 10 + 8
+}
+console.log(f(1, undefined, 1))
+```
+## ディフォルト値がないのパラメータ
+```javascript
+function f (x, y, z=x + y) {
+   console.log(f.length)
+   return x * 10 + z // 10 + 8
+}
+console.log(f(1, undefined, 1))
+```

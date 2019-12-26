@@ -75,23 +75,40 @@
 // let dog = new Dog('dog')
 // dog.eat()
 
-class Animal {
-  constructor (type) {
-    this.type = type
+// class Animal {
+//   constructor (type) {
+//     this.type = type
+//   }
+//   eat () {
+//     Animal.walk()
+//     console.log('i am eat food')
+//   }
+//   static walk () {
+//     console.log('i am walking')
+//   }
+// }
+// class Dog extends Animal {
+//    constructor (type) {
+//      super(type)
+//      this.age = 2
+//    }
+// }
+// let dog = new Dog('dog')
+// dog.eat()
+
+class Query {
+  constructor (list) {
+    this.list = list
   }
-  eat () {
-    Animal.walk()
-    console.log('i am eat food')
+  get show () {
+    console.log('今の状態:', this.list)
   }
-  static walk () {
-    console.log('i am walking')
+  set push (num) {
+    this.list.push(num)
   }
 }
-class Dog extends Animal {
-   constructor (type) {
-     super(type)
-     this.age = 2
-   }
-}
-let dog = new Dog('dog')
-dog.eat()
+const list = [1, 2, 3]
+let query = new Query(list)
+query.show
+query.push = 4
+query.show
