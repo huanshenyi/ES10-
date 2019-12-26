@@ -82,3 +82,27 @@ let find = array.findIndex((item) => {
 })
 console.log(find)
 ```
+# 継承ES5
+```javascript
+let Animal = function (type) {
+  this.type = type
+}
+Animal.prototype.eat = function () {
+  Animal.walk()
+  console.log('i am eat food hello')
+}
+
+Animal.walk = function () {
+  console.log('i am walking')
+}
+
+let Dog = function () {
+  Animal.call(this, 'dog')
+  this.run = function () {
+    console.log('i can run')
+  }
+}
+Dog.prototype = Animal.prototype
+let dog = new Dog('dog')
+dog.eat()
+```
