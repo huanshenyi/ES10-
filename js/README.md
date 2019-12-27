@@ -126,3 +126,14 @@ function f (x, y, z=x + y) {
 }
 console.log(f(1, undefined, 1))
 ```
+## 不特定多数のパラメータの処理
+```javascript
+function sum() {
+   let num = 0
+   Array.from(arguments).forEach(item => {
+      num += item * 1
+   })
+   return num
+}
+console.log(sum(1,2,3)) //6
+```
