@@ -52,8 +52,12 @@
 // }
 // test.say1()
 
-let sort = (list)=>{
-   return list.sort()
+// let sort = (list) => {
+//   return list.sort()
+// }
+//
+// console.log(sort([2, 3, 1]))
+function test (a, b = 1, c) {
+  console.log(arguments.length)
 }
-
-console.log(sort([2,3,1]))
+test('a', 'b')

@@ -137,3 +137,29 @@ function sum() {
 }
 console.log(sum(1,2,3)) //6
 ```
+
+# Setの操作
+```javascript
+let s = new Set()
+// 挿入
+s.add('hello')
+s.add('goodbye')
+console.log(s) // {"hello", "goodbye"}
+// 削除
+s.delete('hello') // {"goodbye"}
+s.clear() // {}
+// 探す
+console.log(s.has('hello')) //true
+//中身の数を見る
+console.log(s.size) //2
+console.log(s.keys()) //SetIterator {"hello", "goodbye"}
+console.log(s.values())//SetIterator {"hello", "goodbye"}
+console.log(s.entries()) //SetIterator {"hello" => "hello", "goodbye" => "goodbye"}
+// ループ
+s.forEach(item => {
+  console.log(item) // hello, goodbye
+})
+for (let i of s) {
+  console.log(i)  // hello, goodbye
+}
+```
