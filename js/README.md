@@ -140,6 +140,7 @@ console.log(sum(1,2,3)) //6
 
 # Setの操作
 ```javascript
+//同じ要素は排除する
 let s = new Set()
 // 挿入
 s.add('hello')
@@ -162,4 +163,49 @@ s.forEach(item => {
 for (let i of s) {
   console.log(i)  // hello, goodbye
 }
+```
+# Map操作
+```javascript
+let map=new Map([[1, 2], [2,3]])
+console.log(map) // {1 => 2, 2 => 3}
+// 値をセット, 修正も同じ
+map.set(1, 2)
+console.log(map) // {1 => 2}
+// 削除
+map.delete(1)
+// クリア
+map.clear()
+//要素の個数
+map.size // 2
+// 要素を探す、keyを使用
+console.log(map.has(1)) //true
+// 要素を取得
+console.log(map.get(1))
+//
+console.log(map.keys(), map.values()) //MapIterator {1, 2} MapIterator {2, 4}
+// key valueの操作
+// valueが先に来るのがvueと同じ
+map.forEach((value, key) => {
+  console.log("value:" , value, "key:" , key) // value: 2 key: 1
+})                                            // value: 4 key: 2
+for (let [key, value] of map) {
+  console.log(key, value)
+}
+```
+
+objectのコピー
+```javascript
+const target = {}
+const source = { b: 4, c: 5}
+            // 受ける側 // 送信元
+Object.assign(target, source)
+// 但し、indexのコピーになる、値のコピーではない。また、null,undefinedはエラー出る
+
+// 値のコピー
+// Deep Clone 
+obj1 = { a: 0 , b: { c: 0}}; 
+let obj3 = JSON.parse(JSON.stringify(obj1)); 
+obj1.a = 4; 
+obj1.b.c = 4; 
+console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
 ```
