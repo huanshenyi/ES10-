@@ -209,3 +209,32 @@ obj1.a = 4;
 obj1.b.c = 4; 
 console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
 ```
+# 正規表現
+```javascript
+const a = 'aaa_aa_a'
+const r1 = /a+/g // グローバルマッチング /^ $/
+const r2 = /a+/y // 連続マッチング
+
+console.log(r1.exec(a)) // aaa
+console.log(r2.exec(a)) // aaa
+
+console.log(r1.exec(a)) // aa
+console.log(r2.exec(a)) // null
+```
+# stringテンプレート
+```javascript
+function Price (strings, type) {
+  let s1 = strings[0]
+  const retailPrice = 20
+  const wholeSalePrice = 16
+  let showTxt
+  if (type === 'retail') {
+    showTxt = '税込:' + retailPrice
+  } else {
+    showTxt = '税抜き:' + wholeSalePrice
+  }
+  return `${s1}${showTxt}`
+}
+let showTxt = Price`今回の${'retail'}`
+console.log(showTxt)
+```
