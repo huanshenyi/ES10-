@@ -155,7 +155,7 @@ console.log(s.has('hello')) //true
 console.log(s.size) //2
 console.log(s.keys()) //SetIterator {"hello", "goodbye"}
 console.log(s.values())//SetIterator {"hello", "goodbye"}
-console.log(s.entries()) //SetIterator {"hello" => "hello", "goodbye" => "goodbye"}
+console.log(s.entries()) //SetIterator {"hello" => "hello", "goodbye" => "goodbye"} key => valueを取得
 // ループ
 s.forEach(item => {
   console.log(item) // hello, goodbye
@@ -237,4 +237,25 @@ function Price (strings, type) {
 }
 let showTxt = Price`今回の${'retail'}`
 console.log(showTxt)
+```
+# 分割代入
+```javascript
+let options = {
+  title: 'menu',
+  width: 100,
+  height: 200
+}
+let {title: title2, width: width2, height: height2} = options
+console.log(title2, width2, height2) //menu 100 200
+// -----------------------------------------------------------------
+let options = {
+  size: {
+    width: 100,
+    height: 200
+  },
+  items: ['Cake', 'Donut'],
+  extra: true
+}
+let { size: { width }, items: [,items1] , extra} = options
+console.log(width, items1, extra) // 100 "Donut" true
 ```
