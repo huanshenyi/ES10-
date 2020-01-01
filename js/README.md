@@ -259,3 +259,92 @@ let options = {
 let { size: { width }, items: [,items1] , extra} = options
 console.log(width, items1, extra) // 100 "Donut" true
 ```
+# 動的domを作る
+````javascript
+function loadScript (src) {
+   let script = document.createElement('script')
+}
+````
+
+# ES5の非同期実行
+```javascript
+function loadScript (src, callback) {
+  let script = document.createElement('script')
+  script.src = src
+  script.onload = () => {
+    callback()
+  }
+  document.head.append(script)
+}
+
+function test () {
+  console.log('test')
+}
+loadScript('./1.js', test)
+```
+# es6の非同期
+```javascript
+function loadScript (src) {
+  // pending, undefined
+  return new Promise((resolve, reject) => {
+    let script = document.createElement('script')
+    script.src = src
+    script.onload = () => resolve(src) // fulfilled, result 
+    script.onerror = (err) => reject(err)// rejected, error
+    document.head.append(script)
+  })
+}
+
+loadScript('./1.js')// 1
+  .then(() => {
+     return loadScript('./4.js') // err 307行目でcatch
+  }, (err)=> {
+     console.log(err)
+  })
+  .then(()=>{
+     loadScript('./3.js')
+  }, (err)=>{
+     console.log(err)
+  })
+// promise.then(onFulfilled, onRejected) onFulfilled=resolve onRejected=reject
+// promiseの状態は不可逆
+// then() にパラメータない場合、空のpromiseを返す
+// 中身をリターンしないとエラーcatchできない
+
+// catchはpromiseがrejectedになったのエラーを捕獲
+```
+# 複数の非同期データ扱い(返って来るまで待つ)
+
+```javascript
+// もしどれか失敗すると、完全失敗する
+
+const p1 = Promise.resolve(1)
+const p2 = Promise.resolve(2)
+const p3 = Promise.resolve(3)
+
+Promise.all([p1, p2, p3]).then((value)=>{
+  console.log(value) // [1, 2, 3]
+})
+```
+
+# race 複数の非同期データ扱い(先に帰ってきたの使用)
+```javascript
+const p1 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve(1)
+    }, 1000)
+  })
+}
+const p2 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      resolve(2)
+    },500)
+  })
+}
+
+Promise.race([p1(), p2()]).then((value)=>{
+  console.log(value)  //2
+})
+```
