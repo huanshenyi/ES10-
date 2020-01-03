@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "babel": "babel-node app.js",
-    "start": "nodemon --exec npm run babel",
+    "serve": "nodemon --exec npm run babel",
     "webpack": "webpack -w"
   },
   "repository": "git@github.com:cucygh/es-cli.git",

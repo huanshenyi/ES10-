@@ -348,3 +348,61 @@ Promise.race([p1(), p2()]).then((value)=>{
   console.log(value)  //2
 })
 ```
+# es6 Reflect
+オブジェクトに要素を追加
+```javascript
+const student = {}
+const o = Reflect.defineProperty(student, 'name', {value: 'Mike'})
+//{name: "Mike"}
+```
+
+
+オブジェクトのとある属性の状態を見る
+```javascript
+console.log(Reflect.getOwnPropertyDescriptor(obj, 'x'))
+// {value: 1, writable: true, enumerable: true, configurable: true}
+```
+
+プロトタイプを見る
+```javascript
+let d = new Date()
+console.log(Reflect.getPrototypeOf(d)) 
+```
+オブジェクトにとある属性存在するか
+```javascript
+const obj = { x: 1, y: 2 }
+Reflect.has(obj, 'x') //true
+```
+オブジェクト拡張可能かどうか
+```javascript
+const obj = { x: 1, y: 2 }
+Object.freeze(obj) // オブジェクトの拡張性を無くす
+console.log(Reflect.isExtensible(obj)) //false
+```
+
+オブジェクト自身のkeys(プロトタイプの要らない)
+```javascript
+const obj = [1,2]
+console.log(Reflect.ownKeys(obj)) // ["0", "1", "length"]
+```
+オブジェクトの拡張禁止
+```javascript
+const obj = { x: 1, y: 2 }
+Reflect.preventExtensions(obj)
+```
+オブジェクトの属性追加or修正
+```javascript
+const obj = { x: 1, y: 2 }
+Reflect.set(obj, 'z', 3)
+console.log(obj) // {x:1, y:2, z:3}
+const obj2 = [1,2,3]
+Reflect.set(obj2, 1, 'haha') // [1, "haha", 3]
+```
+
+プロトタイプの修正
+```javascript
+const obj2 = [1,2,3]
+// console.log(Reflect.getPrototypeOf(obj2))
+Reflect.setPrototypeOf(obj2, String.prototype)
+console.log(Reflect.getPrototypeOf(obj2))
+```
