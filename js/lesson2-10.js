@@ -37,6 +37,7 @@ let price = 101.2
 // console.log(Reflect.isExtensible(obj))
 // Reflect.set(obj, 'z', 3)
 // console.log(obj)
+
 const obj2 = [1,2,3]
 // console.log(Reflect.getPrototypeOf(obj2))
 Reflect.setPrototypeOf(obj2, String.prototype)

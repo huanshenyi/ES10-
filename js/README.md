@@ -357,6 +357,7 @@ const o = Reflect.defineProperty(student, 'name', {value: 'Mike'})
 ```
 
 
+
 オブジェクトのとある属性の状態を見る
 ```javascript
 console.log(Reflect.getOwnPropertyDescriptor(obj, 'x'))
@@ -405,4 +406,22 @@ const obj2 = [1,2,3]
 // console.log(Reflect.getPrototypeOf(obj2))
 Reflect.setPrototypeOf(obj2, String.prototype)
 console.log(Reflect.getPrototypeOf(obj2))
+```
+
+# proxyの使用
+```javascript
+let o = {
+  name: "xiaoming",
+  price: 190,
+}
+
+let d = new Proxy(o, {
+  get (target, key) {
+   return target[key]
+  },
+  set (target, key, value) {
+   return false
+  }
+})
+console.log(d.price) //210
 ```
