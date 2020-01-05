@@ -425,3 +425,57 @@ let d = new Proxy(o, {
 })
 console.log(d.price) //210
 ```
+## proxy使用のバリデーション
+```javascript
+let o = {
+  name: "xiaoming",
+  price: 190,
+}
+let d = new Proxy(o, {
+  get (target, key) {
+    return target[key] || ''
+  },
+  set (target, key, value) {
+    if (Reflect.has(target, key)) {
+      if (key === 'price') {
+        if (value > 300) {
+          return false
+        } else {
+          target[key] = value
+        }
+      } else {
+        target[key] = value
+      }
+    } else {
+      return false
+    }
+  }
+})
+d.price = 301 // 通らない
+d.name = 'hanmeimei' // 通る
+console.log(d.price, d.name, d.age) // 190, 'xiaoming', ''
+バリデーションのコートを別の関数にまとめてもいい
+```
+撤回可能なproxy
+```javascript
+let o = {
+  name: "xiaoming",
+  price: 190,
+}
+
+let d = Proxy.revocable(o, {
+  get (target, key) {
+    if (key === 'price') {
+      return target[key] + 20
+    } else {
+      return target[key]
+    }
+  }
+})
+setTimeout(() => {
+  d.revoke()
+  setTimeout(()=>{
+    console.log(d.proxy.price)
+  },100)
+},1000)
+```
