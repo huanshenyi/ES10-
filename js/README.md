@@ -356,8 +356,6 @@ const o = Reflect.defineProperty(student, 'name', {value: 'Mike'})
 //{name: "Mike"}
 ```
 
-
-
 オブジェクトのとある属性の状態を見る
 ```javascript
 console.log(Reflect.getOwnPropertyDescriptor(obj, 'x'))
@@ -478,4 +476,15 @@ setTimeout(() => {
     console.log(d.proxy.price)
   },100)
 },1000)
+```
+
+# Generator
+```javascript
+function * loop () {
+  for (let i = 0; i < 5; i++) {
+    yield i
+  }
+}
+const l = loop()
+l.next() // 0
 ```
