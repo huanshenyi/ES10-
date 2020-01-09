@@ -7,11 +7,12 @@ module.exports = {
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
-        'BigInt':true
+        'BigInt':true,
     },
     "parserOptions": {
         "ecmaVersion": 2019
     },
     "rules": {
+        "new-cap": 'off',
     }
 };
