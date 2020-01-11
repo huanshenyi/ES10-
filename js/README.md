@@ -488,3 +488,7 @@ function * loop () {
 const l = loop()
 l.next() // 0
 ```
+# es7要素存在判定
+```javascript
+includes()
+```
