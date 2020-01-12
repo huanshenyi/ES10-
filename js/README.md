@@ -492,3 +492,53 @@ l.next() // 0
 ```javascript
 includes()
 ```
+
+# es8のオブジェクト操作
+
+```javascript
+let grade = {
+  'li': 96,
+  'ha': 99
+}
+let lista = Object.keys(grade)
+console.log(lista) //  ["li", "ha"]
+console.log(Object.keys(grade).filter(item=>item==='li')) // ["li"]
+console.log(Object.values(grade)) // [96, 99]
+console.log(Object.values(grade).filter(item => item > 96)) // [99]
+===================================================================
+let result = []
+for (let [k, v] of Object.entries(grade)) {
+  if (k === 'li') {
+    result.push(k)
+  }
+}
+console.log(result) //['li']
+```
+
+# String Padding (余白補完)
+```javascript
+for (let i = 1; i < 32; i++) {
+  console.log(i.toString().padStart(2, '0')) // 01, 02...
+}
+```
+
+# ループ中に必要ないデータを排除
+```javascript
+const data = {
+  PortLang: '78/50',
+  Dublin: '88/52',
+  Lima: '58/40'
+}
+Object.defineProperty(data, 'Lima', {
+  enumerable: false,
+  writable: false
+})
+console.log(Object.keys(data)) //["PortLang", "Dublin"]
+//詳細をすべて取得
+console.log(Object.getOwnPropertyDescriptors(data))
+//PortLang: {value: "78/50", writable: true, enumerable: true, configurable: true}
+//Dublin: {value: "88/52", writable: true, enumerable: true, configurable: true}
+//Lima: {value: "58/40", writable: true, enumerable: false, configurable: true}
+// 一個だけ見る
+console.log(Object.getOwnPropertyDescriptor(data, 'Lima'))
+```
