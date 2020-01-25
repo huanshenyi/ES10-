@@ -542,3 +542,17 @@ console.log(Object.getOwnPropertyDescriptors(data))
 // 一個だけ見る
 console.log(Object.getOwnPropertyDescriptor(data, 'Lima'))
 ```
+
+# yield
+yieldは返り値はないけど、next()に入れて、作るのは可能
+```javascript
+
+function * gen () {
+  let val
+  val = yield [1, 2, 3]
+  console.log(val)
+}
+const l = gen()
+console.log(l.next())
+console.log(l.next("a"))
+```
