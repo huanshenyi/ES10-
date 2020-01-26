@@ -556,3 +556,4 @@ const l = gen()
 console.log(l.next())
 console.log(l.next("a"))
 ```
+抽選の例題lesson2-12 124行目

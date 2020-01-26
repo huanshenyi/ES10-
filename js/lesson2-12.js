@@ -92,3 +92,85 @@
 // console.log(g.next())
 // g.throw(new Error('s'))
 // console.log(g.next())
+
+// function draw (first = 1, second = 3, third = 5) {
+//   let firstPrize = ['1A', '1B', '1C', '1D', '1E']
+//   let secondPrize = ['2A', '2B', '2C', '2D', '2E', '2F', '2G', '2H']
+//   let thirdPrize = ['3A', '3B', '3C', '3D', '3E', '3F', '3G', '3K', '3O', '3P']
+//   let result = []
+//   let random
+//   for (let i = 0; i < first; i++) {
+//     random = Math.floor(Math.random() * firstPrize.length)
+//     result = result.concat(firstPrize.splice(random, 1))
+//   }
+//   // 2
+//   for (let i = 0; i < second; i++) {
+//     random = Math.floor(Math.random() * secondPrize.length)
+//     result = result.concat(secondPrize.splice(random, 1))
+//   }
+//   //3
+//     for (let i = 0; i < third; i++) {
+//     random = Math.floor(Math.random() * thirdPrize.length)
+//     result = result.concat(thirdPrize.splice(random, 1))
+//   }
+//     return result
+// }
+
+// let t = draw()
+// for (let value of t){
+//   console.log(value)
+// }
+
+// function * draw (first = 1, second = 3, third = 5) {
+//   let firstPrize = ['1A', '1B', '1C', '1D', '1E']
+//   let secondPrize = ['2A', '2B', '2C', '2D', '2E', '2F', '2G', '2H']
+//   let thirdPrize = ['3A', '3B', '3C', '3D', '3E', '3F', '3G', '3K', '3O', '3P']
+//   let count = 0
+//   let random
+//
+//   while (1) {
+//     if (count < first) {
+//       random = Math.floor(Math.random() * firstPrize.length)
+//       yield firstPrize[random]
+//       count++
+//       firstPrize.splice(random, 1)
+//     } else if (count < first + second) {
+//       random = Math.floor(Math.random() * secondPrize.length)
+//       yield secondPrize[random]
+//       count++
+//       secondPrize.splice(random, 1)
+//     } else if (count < first + second + third) {
+//       random = Math.floor(Math.random() * thirdPrize.length)
+//       yield thirdPrize[random]
+//       count++
+//       thirdPrize.splice(random, 1)
+//     } else {
+//       return false
+//     }
+//   }
+// }
+//
+// let t = draw()
+// console.log(t.next().value)
+// console.log(t.next().value)
+// console.log(t.next().value)
+// console.log(t.next().value)
+// console.log(t.next().value)
+// console.log(t.next().value)
+
+function * count (x = 1) {
+  while (1) {
+    if (x % 3 === 0) {
+      yield x
+    }
+    x++
+  }
+}
+
+let num = count()
+console.log(num.next())
+console.log(num.next())
+console.log(num.next())
+console.log(num.next())
+
+//
