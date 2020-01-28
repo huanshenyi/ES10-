@@ -8,7 +8,7 @@ for (let i = 0; i < arr.length; i++) {
 }
 ```
 
-```angular2
+```javascript
 arr.forEach((item) => {
   // console.log(item)
 })
@@ -26,11 +26,11 @@ arr.every((item) => {
 })
 ```
 
-```angular2
+```javascript
 // for in 基本オブジェクトをループ用
 // index は文字列string
 for (let index in arr) {
-   if (index == 2) {
+   if (index === 2) {
     continue
   }
   console.log(index, arr[index])
@@ -557,3 +557,20 @@ console.log(l.next())
 console.log(l.next("a"))
 ```
 抽選の例題lesson2-12 124行目
+
+## iterator
+
+lesson2-13.js
+
+```javascript
+authors[Symbol.iterator] = () => {
+  return {
+    next () {
+      return {
+        done: false,
+        value: "何か"
+      }
+    }
+  }
+}
+```
