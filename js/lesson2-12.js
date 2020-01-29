@@ -58,14 +58,15 @@
 // l.next()
 // l.next()
 
-// function * gen () {
-//   let val
-//   val = yield [1, 2, 3]
-//   console.log(val)
-// }
-// const l = gen()
-// console.log(l.next())
-// console.log(l.next())
+function * gen () {
+  let val
+  val = yield * [1, 2, 3]
+  console.log(val)
+}
+const l = gen()
+console.log(l)
+console.log(l.next())
+console.log(l.next())
 
 // function * gen () {
 // //   let val
@@ -158,19 +159,19 @@
 // console.log(t.next().value)
 // console.log(t.next().value)
 
-function * count (x = 1) {
-  while (1) {
-    if (x % 3 === 0) {
-      yield x
-    }
-    x++
-  }
-}
-
-let num = count()
-console.log(num.next())
-console.log(num.next())
-console.log(num.next())
-console.log(num.next())
+// function * count (x = 1) {
+//   while (1) {
+//     if (x % 3 === 0) {
+//       yield x
+//     }
+//     x++
+//   }
+// }
+//
+// let num = count()
+// console.log(num.next())
+// console.log(num.next())
+// console.log(num.next())
+// console.log(num.next())
 
 //
