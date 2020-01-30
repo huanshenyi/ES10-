@@ -31,16 +31,16 @@ authors[Symbol.iterator] = function * () {
   let allAuthorss = this.allAuthors
   let keys = Reflect.ownKeys(allAuthorss)
   let values = []
-  while(1){
-    if(!values.length){
-      if(keys.length){
+  while (1) {
+    if (!values.length) {
+      if (keys.length) {
         values = allAuthorss[keys[0]]
         keys.shift()
         yield values.shift()
-      }else {
+      } else {
         return false
       }
-    }else {
+    } else {
       yield values.shift()
     }
   }

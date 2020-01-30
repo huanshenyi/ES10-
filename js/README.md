@@ -490,7 +490,8 @@ l.next() // 0
 ```
 # es7要素存在判定
 ```javascript
-includes()
+let site = ['runoob', 'google', 'taobao'];
+site.includes("runoob") //true
 ```
 
 # es8のオブジェクト操作
@@ -573,4 +574,69 @@ authors[Symbol.iterator] = () => {
     }
   }
 }
+```
+For await of
+```javascript
+const obj = {
+  count: 0,
+  Gen (time) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ done: false, value: time })
+      }, time)
+    })
+  },
+  [Symbol.asyncIterator] () {
+    let self = this
+    return {
+      next () {
+        self.count++
+        if (self.count < 4) {
+          return self.Gen(Math.random() * 1000)
+        } else {
+          return Promise.resolve({
+            done: true,
+            value: ''
+          })
+        }
+      }
+    }
+  }
+}
+
+async function test () {
+  for await (let item of obj) {
+    console.log(Date.now(), item)
+  }
+}
+test()
+// 1580306213082 860.5550181374921
+// lesson5-1.js:56 1580306213389 305.91239037731157
+// lesson5-1.js:56 1580306214052 662.2013131188585
+```
+
+
+## リストをオブジェクト
+### fromEntries()
+```javascript
+const arr = [['foo', 1], ['bar', 2]]
+const obj = Object.fromEntries(arr)
+console.log(obj) //{foo: 1, bar: 2}
+console.log(obj.bar) //2
+console.log(obj.bar) //2
+```
+
+## オブジェクトのリスト化
+
+```javascript
+const obj = {
+  abc: 1,
+  def: 2,
+  ghksks: 3
+}
+console.log(Object.entries(obj)) // 0: ["abc", 1], 1:["def", 2]
+let res = Object.fromEntries(
+  Object.entries(obj).filter(([key, val]) => key.length === 3)
+)
+console.log(res) //{abc: 1, def: 2}
 ```
