@@ -1,8 +1,8 @@
-let x = 1; let y = 2 ; let z = 3
+let x = 1; let y = 2; let z = 3
 let obj = {
   x,
   y,
-  [z+y] : 5,
+  [z + y]: 5,
   * hello () {
     // console.log('hello')
   }
@@ -52,14 +52,14 @@ s.add('goodbye')
 // map.set(o, 4)
 // console.log(map.get(o))
 
-const target = {g:{a: { b: { c: { d: 9 } }, e: 5, f: 6, h: 10 } }}
-const source = {a: { b: { c: { d: 1 } } ,e: 2, f: 3}}
+const target = { g: { a: { b: { c: { d: 9 } }, e: 5, f: 6, h: 10 } } }
+const source = { a: { b: { c: { d: 1 } }, e: 2, f: 3 } }
 Object.assign(target, source)
-console.log(target, "target")
-console.log(source, "source")
+console.log(target, 'target')
+console.log(source, 'source')
 
 const t1 = undefined
-const s1 = {a:1}
+const s1 = { a: 1 }
 Object.assign(t1, s1)
-console.log(t1, "t1")
-console.log(s1, "s1")
+console.log(t1, 't1')
+console.log(s1, 's1')

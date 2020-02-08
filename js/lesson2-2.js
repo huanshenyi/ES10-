@@ -73,6 +73,6 @@ let array = [1, 2, 3, 4, 5]
 // })
 // console.log(find)
 let find = array.findIndex((item) => {
-   return item === 1
+  return item === 1
 })
 console.log(find)

@@ -24,6 +24,7 @@
            this.proxy = new Proxy({},{
              get(target, key){
                if(key === 'up'){
+                 // データ処理は臨機応変
                  return [].concat(price).sort((a,b)=>a-b)
                }else if (key === 'down'){
                  return [].concat(price).sort((a,b)=>b-a)

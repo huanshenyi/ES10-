@@ -1,1 +1,1 @@
-import './lesson6-1'
+import './webapi/class-demo.js'

@@ -30,4 +30,3 @@ dadwadawd
 dadadwa
 `
 console.log(s1)
-
