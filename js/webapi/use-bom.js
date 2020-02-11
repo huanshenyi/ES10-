@@ -11,14 +11,14 @@ console.log(screen.height)
 
 // ==============================================================
 // location  urlデータ
-location.href     // url取得
+location.href // url取得
 location.reload() // リロード
 location.protocol // "https:" || "http"
 location.host
-location.search   // urlに含むプロパティーを取得
-location.hash     // #以降の内容を取得
+location.search // urlに含むプロパティーを取得
+location.hash // #以降の内容を取得
 location.pathname // host以降のpathを取得
-//=============================================================
+//= ============================================================
 // history   前に戻り、先に進
 history.back()
-history.forward() //進
+history.forward() // 進
