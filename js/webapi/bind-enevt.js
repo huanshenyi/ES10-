@@ -29,13 +29,13 @@ function bindEvent1 (elem, type, selector, fn) {
 }
 // タイプ1使用
 const a = document.getElementById('link1')
-bindEvent(a, 'click', e => {
-  e.preventDefault() // defaultのイベントをとめる,
+bindEvent(a, 'click', function (event) {
+  event.preventDefault() // defaultのイベントをとめる,
   alert('clicked')
 })
 // タイプ2使用
 const div3 = document.getElementById('div3')
-bindEvent1(div3, 'click', 'a', event=>{
+bindEvent1(div3, 'click', 'a', function (event) {
   event.preventDefault()
   console.log(this.innerHTML) //ここのthisはdiv3
 })
