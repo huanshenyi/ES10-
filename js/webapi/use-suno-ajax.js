@@ -41,3 +41,29 @@ const postData = {
   passWord: 'pw'
 }
 xhr.send(JSON.stringify(postData))
+
+// ================================
+//Promise
+function ajax (url) {
+const p = new Promise((resolve , reject)=>{
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', url, true) //falseの場合同期処理
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        resolve(JSON.parse(xhr.responseText))
+      } else {
+        reject(new Error('404 not found'))
+      }
+    }
+  }
+  xhr.send(null);
+})
+  return p;
+}
+const url = '/data/x.json'
+ajax(url).then(res=>{
+  console.log(res)
+}).catch(err=>{
+
+})
