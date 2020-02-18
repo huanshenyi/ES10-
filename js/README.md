@@ -256,6 +256,7 @@ let options = {
   items: ['Cake', 'Donut'],
   extra: true
 }
+// let {extra, ...item} = options;
 let { size: { width }, items: [,items1] , extra} = options
 console.log(width, items1, extra) // 100 "Donut" true
 ```
