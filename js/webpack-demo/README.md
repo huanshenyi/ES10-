@@ -14,3 +14,10 @@ npm install html-webpack-plugin -D //html解析
 ```shell script
 npm install webpack-dev-server -D
 ```
+
+babelインストール
+```shell script
+npm install @babel/core @babel/preset-env babel-loader -D
+```
+使い方:
+https://www.npmjs.com/package/babel-loader
